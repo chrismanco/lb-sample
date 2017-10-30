@@ -1,0 +1,58 @@
+web:
+  build: ./nginx
+  ports:
+    - "8080:80"
+  links:
+    - service-one
+    - service-two
+    - service-three
+    - service-four
+service-one:
+  container_name: service-one
+  image: openjdk:8-jdk-alpine
+  volumes: 
+    - ./target:/app
+  entrypoint:
+    - java
+    - -jar
+    - /app/lb-sample-1.0.jar
+    - service-one
+  ports:
+    - "8180:8080"
+service-two:
+  container_name: service-two
+  image: openjdk:8-jdk-alpine
+  volumes:
+    - ./target:/app
+  entrypoint:
+    - java
+    - -jar
+    - /app/lb-sample-1.0.jar
+    - service-two
+  ports:
+    - "8280:8080"
+service-three:
+  container_name: service-three
+  image: openjdk:8-jdk-alpine
+  volumes:
+    - ./target:/app
+  entrypoint:
+    - java
+    - -jar
+    - /app/lb-sample-1.0.jar
+    - service-three
+  ports:
+    - "8380:8080"
+service-four:
+  container_name: service-four
+  image: openjdk:8-jdk-alpine
+  volumes:
+    - ./target:/app
+  entrypoint:
+    - java
+    - -jar
+    - /app/lb-sample-1.0.jar
+    - service-four
+  ports:
+    - "8480:8080"
+
