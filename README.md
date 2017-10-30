@@ -1,2 +1,14 @@
 # lb-sample
-Sample project demonstration the Nginx load balancer basic functionality
+
+Sample project demonstrating the Nginx load balancer basic functionality
+
+
+## Build 
+
+mvn clean package -Dmaven.test.skip=true
+
+## Run
+
+docker-compose up
+
+## Play!
